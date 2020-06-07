@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	// Write your main here
+	float costRentOneRoom = 0.0;
+	double numRoomBooked = 0.0;
+	double numDaysRoomBooked = 0.0;
+	double salesTaxPercent = 0.0;
+	const double disc10 = 0.10;
+	const double disc20 = 0.20;
+	const double disc30 = 0.30;
+	const double disc5 = 0.05;
+
+	double discRooms = 0.0;
+	double discDays = 0.0;
+
+
+	
+
+	cout << "The cost of renting one room is: ";
+	cin >> costRentOneRoom;
+
+	cout << " The number of rooms booked is: ";
+	cin >> numRoomBooked;
+
+	cout << "The number of days the rooms are booked is: ";
+	cin >> numDaysRoomBooked;
+
+	cout << " The sales tax(as a percent) is: ";
+	cin >> salesTaxPercent;
+
+	if (numRoomBooked >= 30)
+	{
+		discRooms = disc30;
+	}
+	else if (numRoomBooked >= 20)
+	{
+		discRooms = disc20;
+	}
+	else if (numRoomBooked >= 10)
+	{
+		discRooms = disc10;
+	}
+
+	if (numDaysRoomBooked >= 3)
+	{
+		discDays = disc5;
+	}
+	
+	cout << "\nThe cost of renting one room is: " << costRentOneRoom << endl;
+	cout << "The discount on each room as a percent is: " << (discRooms + discDays) * 100 << "%" << endl;
+	cout << "The number of rooms booked: " << numRoomBooked << endl;
+	cout << "The number of days the rooms are booked: " << numDaysRoomBooked << endl;
+
+
+	double totalCost = costRentOneRoom * numRoomBooked * numDaysRoomBooked;
+	double tax = totalCost * salesTaxPercent / 100.0;
+	double totalDiscount = totalCost * (discRooms + discDays);
+	double totalBilling = totalCost - totalDiscount + tax;
+
+	cout << "The total cost: " << totalCost << endl;
+	cout << "The sales tax : " << tax << endl;
+	cout << "The total billing amount: " << totalBilling << endl; 
+
+	system("pause");
+	return 0;
+}
